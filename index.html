@@ -4,76 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laatukampe – Laadukkaimmat tuotteet</title>
-  <!-- Tailwind CSS CDN (auto‑generated build) -->
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    /*
-      Pieni teema‑laajennus – voit muokata värejä, fontteja tms. täällä myöhemmin.
-      tailwind.config = {
-        theme: {
-          extend: {}  // esim. colors: { primary: '#FACC15' }
-        }
+    // Tässä voit laajentaa Tailwind-teemaa myöhemmin (värit, fontit, tms.)
+    tailwind.config = {
+      theme: {
+        extend: {}
       }
-    */
+    }
   </script>
+
+  <link rel="icon" type="image/png" href="laatukampe.png">
 </head>
 <body class="bg-black text-white font-sans scroll-smooth overflow-x-hidden">
 
-  <!-- Header / Logo -->
-  <header class="w-full bg-black/90 backdrop-blur sticky top-0 z-50 shadow">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-center">
-      <img src="laatukampe.png" alt="Laatukampe logo" class="h-14 w-auto select-none" loading="lazy">
-    </div>
+  <!-- 🔝 Kategoriat ylävalikkona -->
+  <header class="w-full sticky top-0 z-50 bg-black/90 backdrop-blur shadow">
+    <nav class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-center gap-6 text-sm md:text-base font-semibold">
+      <!-- Vastakkainen järjestys kuten aiemmin → Koti, Urheilu, Muoti, Elektroniikka -->
+      <a href="#home" class="hover:text-gray-300 transition">Koti</a>
+      <a href="#sports" class="hover:text-gray-300 transition">Urheilu</a>
+      <a href="#fashion" class="hover:text-gray-300 transition">Muoti</a>
+      <a href="#electronics" class="hover:text-gray-300 transition">Elektroniikka</a>
+    </nav>
   </header>
 
-  <!-- Hero – Latest Deals -->
+  <!-- 🖼️ HERO – Iso logo taustalla (watermark) -->
+  <section id="hero" class="relative h-[60vh] md:h-[80vh] flex items-center justify-center">
+    <!-- Taustakuva logo -->
+    <div class="absolute inset-0 bg-[url('laatukampe.png')] bg-center bg-no-repeat bg-contain opacity-15 pointer-events-none"></div>
+
+    <!-- Tekstikerros -->
+    <div class="relative text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Laatukampe</h1>
+      <p class="md:text-xl text-gray-300 max-w-xl mx-auto">Laadukkaimmat tuotteet parhaaseen hintaan</p>
+    </div>
+  </section>
+
+  <!-- 🔥 Uusimmat tarjoukset -->
   <section class="bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 py-16 text-center">
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Uusimmat tarjoukset</h1>
-      <p class="text-gray-300 md:text-xl mb-10">Päivittäin päivittyvät diilit laadukkaimmista tuotteista</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Uusimmat tarjoukset</h2>
+      <p class="text-gray-300 md:text-lg mb-10">Päivittäin päivittyvät diilit laadukkaimmista tuotteista</p>
 
-      <!-- Horizontaalinen karuselli → korvaa Shopify Buy Button -komponenteilla -->
+      <!-- Karuselli (placeholder) -->
       <div id="dealsCarousel" class="flex gap-6 overflow-x-auto snap-x md:snap-none scrollbar-thin scrollbar-thumb-gray-700/70 scrollbar-track-gray-800/60">
-        <!-- Mallikortti -->
         <article class="min-w-[260px] bg-white text-black rounded-2xl p-5 shadow-lg snap-center shrink-0">
           <div class="h-44 bg-gray-200 rounded-xl mb-4 flex items-center justify-center">
             <span class="text-gray-500">Kuva</span>
           </div>
-          <h2 class="font-semibold text-lg mb-1">Tuote 1</h2>
+          <h3 class="font-semibold text-lg mb-1">Tuote 1</h3>
           <p class="text-sm text-gray-600 mb-3">Lyhyt kuvaus</p>
           <p class="text-xl font-bold mb-4">€199</p>
           <button class="w-full bg-black text-white py-2 rounded-xl hover:bg-gray-800 transition-colors">Osta nyt</button>
         </article>
-        <!-- Lisää tuotekomponentteja tähän -->
+        <!-- Lisää tuotekortteja / Shopify Buy Buttonit -->
       </div>
       <p class="text-xs text-gray-400 mt-4 hidden md:block">✨ Vieritä sivusuunnassa nähdäksesi lisää ✨</p>
     </div>
   </section>
 
-  <!-- Categories -->
-  <section id="categories" class="bg-black">
-    <div class="max-w-7xl mx-auto px-4 py-16">
-      <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Tuotekategoriat</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
-        <a href="#electronics" class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-800 transition">
-          <span class="text-4xl mb-4 group-hover:scale-110 transition">📱</span>
-          <span class="font-semibold">Elektroniikka</span>
-        </a>
-        <a href="#fashion" class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-800 transition">
-          <span class="text-4xl mb-4 group-hover:scale-110 transition">👗</span>
-          <span class="font-semibold">Muoti</span>
-        </a>
-        <a href="#sports" class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-800 transition">
-          <span class="text-4xl mb-4 group-hover:scale-110 transition">🏋️‍♂️</span>
-          <span class="font-semibold">Urheilu</span>
-        </a>
-        <a href="#home" class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-800 transition">
-          <span class="text-4xl mb-4 group-hover:scale-110 transition">🏠</span>
-          <span class="font-semibold">Koti</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- ℹ️ Dummy‑osiot ankkureille (voit korvata oikealla sisällöllä) -->
+  <section id="home" class="py-24"></section>
+  <section id="sports" class="py-24"></section>
+  <section id="fashion" class="py-24"></section>
+  <section id="electronics" class="py-24"></section>
 
   <!-- Footer -->
   <footer class="bg-gray-900">
@@ -82,7 +80,6 @@
     </div>
   </footer>
 
-  <!-- Scriptit -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
