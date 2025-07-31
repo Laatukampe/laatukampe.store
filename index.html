@@ -2,74 +2,104 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laatukampe Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary:#222;
-      --accent:#b3541e;
-      --bg:#f5f5f5;
-    }
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Roboto',sans-serif;}
-    body{background:var(--bg);color:#333;line-height:1.6;}
-    header{background:var(--primary);color:#fff;padding:1rem;text-align:center;}
-    header h1{font-size:2rem;letter-spacing:1px;}
-    .container{max-width:1200px;margin:2rem auto;padding:0 1rem;}
-    .grid{display:flex;flex-wrap:wrap;gap:1.5rem;}
-    .card{background:#fff;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.05);flex:1 1 280px;display:flex;flex-direction:column;}
-    .card img{width:100%;border-top-left-radius:12px;border-top-right-radius:12px;object-fit:cover;height:200px;}
-    .card-body{padding:1rem;flex:1;display:flex;flex-direction:column;}
-    .card-body h2{font-size:1.25rem;margin-bottom:.5rem;}
-    .price{font-weight:bold;margin:.5rem 0;font-size:1.1rem;}
-    .buy-btn{display:block;text-align:center;margin-top:auto;padding:.75rem 1rem;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;transition:background .2s;}
-    .buy-btn:hover{background:#993e14;}
-    footer{padding:2rem;text-align:center;font-size:.9rem;color:#666;}
-    footer a{color:var(--primary);text-decoration:none;}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laatukampe – Laadukkaimmat tuotteet</title>
+  <!-- Tailwind CSS CDN for rapid, responsive styling -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Favicon (optional) -->
+  <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
 </head>
-<body>
-  <header>
-    <h1>Laatukampe Store</h1>
-    <p>Laatukampetta kohtuudella</p>
+<body class="bg-black text-white font-sans overflow-x-hidden">
+
+  <!-- Navigation / Header -->
+  <header class="w-full bg-black shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-center">
+      <!-- Place laatukampe.png in the same directory -->
+      <img src="laatukampe.png" alt="Laatukampe logo" class="h-12 w-auto select-none" loading="lazy">
+    </div>
   </header>
-  <main class="container">
-    <section class="grid">
-      <!-- Product 1 -->
-      <article class="card">
-        <img src="https://placehold.co/600x400?text=Tuotekuva+1" alt="Tuote 1">
-        <div class="card-body">
-          <h2>Terästermari 500 ml</h2>
-          <p>Rakenne, joka kestää Suomen talven ja kesän. Pitää juoman lämpimänä 12 h.</p>
-          <div class="price">29,90 €</div>
-          <!-- TODO: Korvaa href omalla Stripe Payment Linkillä -->
-          <a class="buy-btn" href="https://buy.stripe.com/test_link_1">Osta nyt</a>
-        </div>
-      </article>
-      <!-- Product 2 -->
-      <article class="card">
-        <img src="https://placehold.co/600x400?text=Tuotekuva+2" alt="Tuote 2">
-        <div class="card-body">
-          <h2>Keraaminen kahvimuki</h2>
-          <p>Käsinlasitettu, konepesun kestävä 350 ml muki arkiseen luksukseen.</p>
-          <div class="price">14,90 €</div>
-          <a class="buy-btn" href="https://buy.stripe.com/test_link_2">Osta nyt</a>
-        </div>
-      </article>
-      <!-- Product 3 -->
-      <article class="card">
-        <img src="https://placehold.co/600x400?text=Tuotekuva+3" alt="Tuote 3">
-        <div class="card-body">
-          <h2>Monitoimityökalu 11‑in‑1</h2>
-          <p>Taskukokoinen rosteri‑työkalu retkelle, pyörähuoltoon ja arkeen.</p>
-          <div class="price">19,90 €</div>
-          <a class="buy-btn" href="https://buy.stripe.com/test_link_3">Osta nyt</a>
-        </div>
-      </article>
-    </section>
-  </main>
-  <footer>
-    © 2025 Laatukampe • <a href="mailto:info@laatukampe.store">info@laatukampe.store</a>
+
+  <!-- Hero Section – Latest Deals -->
+  <section class="bg-gray-900">
+    <div class="container mx-auto px-4 py-12 text-center">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">Uusimmat tarjoukset</h1>
+      <p class="text-gray-300 mb-8">Päivittäin päivittyvät diilit laadukkaimmista tuotteista</p>
+
+      <!-- Horizontally scrollable carousel placeholder. Replace with Shopify Buy Buttons or dynamic components later. -->
+      <div id="dealsCarousel" class="flex overflow-x-auto space-x-6 pb-4 snap-x scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+        <!-- Example product card -->
+        <article class="min-w-[240px] bg-white text-black rounded-2xl p-4 shadow-lg snap-center">
+          <div class="h-40 bg-gray-200 rounded-xl mb-3 flex items-center justify-center">
+            <span class="text-gray-500">Kuva</span>
+          </div>
+          <h2 class="font-semibold text-lg">Tuote 1</h2>
+          <p class="text-sm text-gray-600">Lyhyt kuvaus</p>
+          <p class="text-xl font-bold mt-2">€199</p>
+          <button class="mt-4 w-full bg-black text-white py-2 rounded-xl hover:bg-gray-800 transition">
+            Osta nyt
+          </button>
+        </article>
+        <!-- Lisää tuotteita Shopify Buy Buttonin avulla -->
+      </div>
+      <p class="text-sm text-gray-500 mt-4">Vieritä nähdäksesi lisää ➡️</p>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="bg-black">
+    <div class="container mx-auto px-4 py-12">
+      <h2 class="text-2xl md:text-4xl font-bold text-center mb-8">Tuotekategoriat</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- Repeat / modify category cards as needed -->
+        <a href="#electronics" class="group block bg-gray-900 rounded-2xl p-6 text-center hover:bg-gray-800 transition">
+          <div class="h-20 flex items-center justify-center mb-4">
+            <span class="text-gray-400 group-hover:text-white text-3xl">📱</span>
+          </div>
+          <span class="font-semibold">Elektroniikka</span>
+        </a>
+
+        <a href="#fashion" class="group block bg-gray-900 rounded-2xl p-6 text-center hover:bg-gray-800 transition">
+          <div class="h-20 flex items-center justify-center mb-4">
+            <span class="text-gray-400 group-hover:text-white text-3xl">👗</span>
+          </div>
+          <span class="font-semibold">Muoti</span>
+        </a>
+
+        <a href="#sports" class="group block bg-gray-900 rounded-2xl p-6 text-center hover:bg-gray-800 transition">
+          <div class="h-20 flex items-center justify-center mb-4">
+            <span class="text-gray-400 group-hover:text-white text-3xl">🏋️‍♂️</span>
+          </div>
+          <span class="font-semibold">Urheilu</span>
+        </a>
+
+        <a href="#home" class="group block bg-gray-900 rounded-2xl p-6 text-center hover:bg-gray-800 transition">
+          <div class="h-20 flex items-center justify-center mb-4">
+            <span class="text-gray-400 group-hover:text-white text-3xl">🏠</span>
+          </div>
+          <span class="font-semibold">Koti</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900">
+    <div class="container mx-auto px-4 py-8 text-center text-sm text-gray-500">
+      © <span id="year"></span> Laatukampe. Kaikki oikeudet pidätetään.
+    </div>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Dynamic current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /*
+     * Shopify Buy Button integration instructions (placeholder):
+     * 1. Kirjaudu Shopifyhin ja luo Buy Button -sovellus.
+     * 2. Upota saamasi <script> koodi ja product-component div tähän.
+     */
+  </script>
+
 </body>
 </html>
