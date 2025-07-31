@@ -26,7 +26,7 @@
 
   <!-- 🔝 Sticky Category Bar -->
   <header class="w-full sticky top-0 z-50 bg-black/90 backdrop-blur shadow">
-    <nav class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap justify-center gap-4 md:gap-10 text-sm md:text-base font-semibold tracking-wide">
+    <nav class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap justify-center gap-4 md:gap-10 text-base md:text-lg font-semibold tracking-wide">
       <a href="#home"        class="hover:text-primary transition">Koti</a>
       <a href="#sports"      class="hover:text-primary transition">Urheilu</a>
       <a href="#fashion"     class="hover:text-primary transition">Muoti</a>
@@ -72,8 +72,9 @@
   <!-- 🔥 Deals Carousel -->
   <section id="deals" class="bg-gray-900 py-16">
     <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4">🔥 Kuumat diilit juuri nyt 🔥</h2>
-      
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Tämän hetken kuumimmat diilit</h2>
+      <p class="text-gray-300 md:text-lg mb-10">Päivitetty <span id="updatedDate"></span></p>
+
       <div id="dealsCarousel" class="flex gap-6 overflow-x-auto snap-x md:snap-none pb-4 scrollbar-thin scrollbar-thumb-gray-700/70 scrollbar-track-gray-800/60">
         <!-- Example card -->
         <article class="min-w-[260px] bg-white text-black rounded-2xl p-4 sm:p-5 shadow-lg snap-center shrink-0 hover:shadow-xl transition">
@@ -97,7 +98,7 @@
   <!-- 📣 Newsletter CTA -->
   <section class="bg-primary text-black py-16 text-center">
     <div class="max-w-2xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Liity VIP‑listalle ja nappaa nopeasti seuraavaksi tulevat laatukamppeet! </h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Liity VIP‑listalle ja nappaa -10 % seuraavasta ostoksesta</h2>
       <p class="mb-8 text-gray-800">Saat ensimmäisenä sähköpostiisi uudet diilit ja eksklusiiviset kupongit.</p>
       <form class="flex flex-col sm:flex-row gap-4 justify-center">
         <input type="email" placeholder="Sähköpostisi" required class="flex-1 px-4 py-3 rounded-xl placeholder-gray-500 focus:outline-none">
@@ -113,12 +114,12 @@
       <div class="grid gap-10 md:grid-cols-3">
         <!-- Simple static testimonials; replace or integrate slider later -->
         <figure class="bg-gray-900 rounded-2xl p-6 shadow-lg text-left">
-          <blockquote class="mb-4 italic text-gray-300 leading-relaxed">“Maksoin itseni kipeäksi kultaisista Airpodeista - Näyttäydyn nyt uudellaisella ja omaperäisellä tasolla!”</blockquote>
-          <figcaption class="text-sm text-gray-500">– Anni, Muonio</figcaption>
+          <blockquote class="mb-4 italic text-gray-300 leading-relaxed">“Löysin uuden puhelimen 30 % halvemmalla kuin muualla – suosittelen lämpimästi!”</blockquote>
+          <figcaption class="text-sm text-gray-500">– Anni, Helsinki</figcaption>
         </figure>
         <figure class="bg-gray-900 rounded-2xl p-6 shadow-lg text-left">
-          <blockquote class="mb-4 italic text-gray-300 leading-relaxed">“Mistään en aiemmin saanut bobcattiin ralliauton penkkiä, kunnes Laatukampe hoiti homman!”</blockquote>
-          <figcaption class="text-sm text-gray-500">– Jussi, inari</figcaption>
+          <blockquote class="mb-4 italic text-gray-300 leading-relaxed">“Helppo käyttää, nopea toimitus ja loistava asiakaspalvelu.”</blockquote>
+          <figcaption class="text-sm text-gray-500">– Jussi, Tampere</figcaption>
         </figure>
         <figure class="bg-gray-900 rounded-2xl p-6 shadow-lg text-left">
           <blockquote class="mb-4 italic text-gray-300 leading-relaxed">“Säästin tuntikausia shoppailuaikaa – Laatukampe tekee sen puolestani.”</blockquote>
@@ -130,31 +131,31 @@
 
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-3 text-sm">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-4 text-sm">
+      <!-- Logo & about -->
       <div>
-        <img src="laatukampe.png" alt="Laatukampe logo" class="h-10 mb-4">
+        <img src="laatukampe.png" alt="Laatukampe logo" class="h-24 mb-4">
         <p>Suomen luotettavin affiliate‑tarjoussivusto vuodesta 2025.</p>
+        <!-- Social icons -->
+        <div class="flex gap-4 mt-6">
+          <a href="https://www.instagram.com/laatukampe/" target="_blank" rel="noopener" class="hover:text-primary transition">
+            <!-- Instagram icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" class="h-8 w-8 fill-current" aria-labelledby="igTitle"><title id="igTitle">Instagram</title><path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.343 3.608 1.319.975.975 1.257 2.242 1.319 3.608.058 1.265.069 1.645.069 4.84 0 3.196-.012 3.577-.07 4.842-.062 1.366-.344 2.633-1.319 3.608-.975.975-2.242 1.257-3.608 1.319-1.265.058-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.07-1.366-.062-2.633-.344-3.608-1.319-.975-.975-1.257-2.242-1.319-3.608C2.175 15.58 2.163 15.2 2.163 12c0-3.196.012-3.577.07-4.842.062-1.366.344-2.633 1.319-3.608C4.528 2.576 5.795 2.294 7.161 2.232 8.426 2.175 8.806 2.163 12 2.163zm0-2.163C8.737 0 8.332.013 7.052.072 5.713.132 4.633.36 3.678 1.315c-.955.955-1.183 2.035-1.243 3.374C2.013 6.668 2 7.073 2 12c0 4.927.013 5.332.072 6.612.06 1.339.288 2.419 1.243 3.374.955.955 2.035 1.183 3.374 1.243C8.332 23.987 8.737 24 12 24s3.668-.013 4.948-.072c1.339-.06 2.419-.288 3.374-1.243.955-.955 1.183-2.035 1.243-3.374C23.987 17.668 24 17.263 24 12c0-4.927-.013-5.332-.072-6.612-.06-1.339-.288-2.419-1.243-3.374-.955-.955-2.035-1.183-3.374-1.243C15.668.013 15.263 0 12 0z"/><path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998z"/><circle cx="18.406" cy="5.594" r="1.44"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@laatukampe" target="_blank" rel="noopener" class="hover:text-primary transition">
+            <!-- TikTok icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" class="h-8 w-8 fill-current" aria-labelledby="ttTitle"><title id="ttTitle">TikTok</title><path d="M12.557 0H8.99v16.389c0 .906-.735 1.641-1.64 1.641a1.64 1.64 0 0 1-1.64-1.64 1.64 1.64 0 0 1 1.64-1.64c.232 0 .452.05.651.14V10.75a6.295 6.295 0 0 0-.651-.035A6.321 6.321 0 0 0 0 17.036 6.321 6.321 0 0 0 6.322 23.36c3.495 0 6.321-2.826 6.321-6.321V8.252c1.006.746 2.249 1.19 3.591 1.19V5.25c-.741 0-1.432-.214-2.03-.583a3.6 3.6 0 0 1-1.647-2.11z"/></svg>
+          </a>
+        </div>
       </div>
+      <!-- Navigation column -->
       <div class="flex flex-col gap-2">
         <span class="font-semibold text-white mb-2">Navigointi</span>
         <a href="#hero"       class="hover:text-primary transition">Etusivu</a>
         <a href="#deals"      class="hover:text-primary transition">Tarjoukset</a>
         <a href="#newsletter" class="hover:text-primary transition">Liity listalle</a>
       </div>
+      <!-- Contact column -->
       <div class="flex flex-col gap-2">
         <span class="font-semibold text-white mb-2">Yhteystiedot</span>
-        <p>info@laatukampe.fi</p>
-        <p>Helsinki, Finland</p>
-      </div>
-    </div>
-    <div class="border-t border-gray-800 text-center py-4 text-xs">© <span id="year"></span> Laatukampe. Kaikki oikeudet pidätetään.</div>
-  </footer>
-
-  <!-- JS: dynamic dates -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('updatedDate').textContent = new Intl.DateTimeFormat('fi-FI').format(new Date());
-  </script>
-
-</body>
-</html>
+        <p>info@laat
