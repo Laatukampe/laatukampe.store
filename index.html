@@ -3,85 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laatukampe – Laadukkaimmat tuotteet</title>
+  <title>Laatukampe – Laadukkaimmat tarjoukset</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS (min + CDN to ensure Pages works) -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tässä voit laajentaa Tailwind-teemaa myöhemmin (värit, fontit, tms.)
     tailwind.config = {
       theme: {
-        extend: {}
+        extend: {
+          colors: {
+            primary: '#FACC15' // keltainen aksentti (amber‑400)
+          }
+        }
       }
     }
   </script>
 
   <link rel="icon" type="image/png" href="laatukampe.png">
 </head>
-<body class="bg-black text-white font-sans scroll-smooth overflow-x-hidden">
+<body class="bg-black text-white font-sans antialiased scroll-smooth overflow-x-hidden">
 
-  <!-- 🔝 Kategoriat ylävalikkona -->
+  <!-- 🔝 Sticky Category Bar -->
   <header class="w-full sticky top-0 z-50 bg-black/90 backdrop-blur shadow">
-    <nav class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-center gap-6 text-sm md:text-base font-semibold">
-      <!-- Vastakkainen järjestys kuten aiemmin → Koti, Urheilu, Muoti, Elektroniikka -->
-      <a href="#home" class="hover:text-gray-300 transition">Koti</a>
-      <a href="#sports" class="hover:text-gray-300 transition">Urheilu</a>
-      <a href="#fashion" class="hover:text-gray-300 transition">Muoti</a>
-      <a href="#electronics" class="hover:text-gray-300 transition">Elektroniikka</a>
+    <nav class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap justify-center gap-4 md:gap-10 text-sm md:text-base font-semibold tracking-wide">
+      <a href="#home"        class="hover:text-primary transition">Koti</a>
+      <a href="#sports"      class="hover:text-primary transition">Urheilu</a>
+      <a href="#fashion"     class="hover:text-primary transition">Muoti</a>
+      <a href="#electronics" class="hover:text-primary transition">Elektroniikka</a>
     </nav>
   </header>
 
-  <!-- 🖼️ HERO – Iso logo taustalla (watermark) -->
-  <section id="hero" class="relative h-[60vh] md:h-[80vh] flex items-center justify-center">
-    <!-- Taustakuva logo -->
-    <div class="absolute inset-0 bg-[url('laatukampe.png')] bg-center bg-no-repeat bg-contain opacity-15 pointer-events-none"></div>
+  <!-- 🖼️ HERO – Full‑bleed logo + CTA -->
+  <section id="hero" class="relative h-[85vh] flex items-center justify-center">
+    <!-- background logo -->
+    <div class="absolute inset-0 bg-[url('laatukampe.png')] bg-center bg-no-repeat bg-contain opacity-10 md:opacity-15 pointer-events-none"></div>
+    <!-- gradient overlay for contrast -->
+    <div class="absolute inset-0 from-black/80 via-black/60 to-black/80 bg-gradient-to-b pointer-events-none"></div>
 
-    <!-- Tekstikerros -->
-    <div class="relative text-center px-4">
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Laatukampe</h1>
-      <p class="md:text-xl text-gray-300 max-w-xl mx-auto">Laadukkaimmat tuotteet parhaaseen hintaan</p>
+    <div class="relative z-10 text-center px-4 max-w-2xl">
+      <h1 class="text-4xl md:text-7xl font-extrabold leading-tight mb-6">Laadukkaat tuotteet <span class="text-primary">ilman kompromisseja</span></h1>
+      <p class="text-gray-300 md:text-xl mb-8">Säästä aikaa ja rahaa – me seulomme puolestasi parhaat diilit eri tuoteryhmistä.</p>
+      <a href="#deals" class="inline-block bg-primary text-black font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-primary/50 hover:-translate-y-[2px] transition">Selaa tarjouksia</a>
     </div>
   </section>
 
-  <!-- 🔥 Uusimmat tarjoukset -->
-  <section class="bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4 py-16 text-center">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4">Uusimmat tarjoukset</h2>
-      <p class="text-gray-300 md:text-lg mb-10">Päivittäin päivittyvät diilit laadukkaimmista tuotteista</p>
+  <!-- ⭐ Value Props / Trust Badges -->
+  <section class="bg-black border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-3 text-center">
+      <div class="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+        <h3 class="font-semibold mb-1">100 % luotettavat kaupat</h3>
+        <p class="text-sm text-gray-400">Kaikki kumppanit tarkistettu käsin.</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18m-8 5h8" /></svg>
+        <h3 class="font-semibold mb-1">Parhaat hinnat</h3>
+        <p class="text-sm text-gray-400">Päivitämme hinnat päivittäin, jotta saat aina diilin.</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" /></svg>
+        <h3 class="font-semibold mb-1">Nopea toimitus</h3>
+        <p class="text-sm text-gray-400">Suosimme kumppaneita, jotka toimittavat 24‑48 h.</p>
+      </div>
+    </div>
+  </section>
 
-      <!-- Karuselli (placeholder) -->
-      <div id="dealsCarousel" class="flex gap-6 overflow-x-auto snap-x md:snap-none scrollbar-thin scrollbar-thumb-gray-700/70 scrollbar-track-gray-800/60">
-        <article class="min-w-[260px] bg-white text-black rounded-2xl p-5 shadow-lg snap-center shrink-0">
-          <div class="h-44 bg-gray-200 rounded-xl mb-4 flex items-center justify-center">
+  <!-- 🔥 Deals Carousel -->
+  <section id="deals" class="bg-gray-900 py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">🔥 Kuumat diilit juuri nyt</h2>
+      <p class="text-gray-300 md:text-lg mb-10">Päivitetty <span id="updatedDate"></span></p>
+
+      <div id="dealsCarousel" class="flex gap-6 overflow-x-auto snap-x md:snap-none pb-4 scrollbar-thin scrollbar-thumb-gray-700/70 scrollbar-track-gray-800/60">
+        <!-- Example card -->
+        <article class="min-w-[260px] bg-white text-black rounded-2xl p-4 sm:p-5 shadow-lg snap-center shrink-0 hover:shadow-xl transition">
+          <div class="h-40 sm:h-48 bg-gray-200 rounded-xl mb-3 flex items-center justify-center">
             <span class="text-gray-500">Kuva</span>
           </div>
-          <h3 class="font-semibold text-lg mb-1">Tuote 1</h3>
-          <p class="text-sm text-gray-600 mb-3">Lyhyt kuvaus</p>
-          <p class="text-xl font-bold mb-4">€199</p>
-          <button class="w-full bg-black text-white py-2 rounded-xl hover:bg-gray-800 transition-colors">Osta nyt</button>
+          <h3 class="font-semibold text-lg">Tuote 1</h3>
+          <p class="text-sm text-gray-600">Lyhyt kuvaus</p>
+          <div class="flex items-baseline gap-2 mt-3">
+            <p class="text-xl font-bold">€199</p>
+            <span class="text-sm line-through text-gray-400">€249</span>
+          </div>
+          <a href="#" class="block mt-4 w-full bg-black text-white py-2 rounded-xl hover:bg-primary hover:text-black transition-colors">Osta nyt</a>
         </article>
-        <!-- Lisää tuotekortteja / Shopify Buy Buttonit -->
+        <!-- Lisää dynaamisesti Shopify Buy Buttonit / API‑tuotteet tänne -->
       </div>
-      <p class="text-xs text-gray-400 mt-4 hidden md:block">✨ Vieritä sivusuunnassa nähdäksesi lisää ✨</p>
+      <p class="text-xs text-gray-400 mt-4 hidden md:block">Swipe → nähdäksesi lisää tarjouksia</p>
     </div>
   </section>
 
-  <!-- ℹ️ Dummy‑osiot ankkureille (voit korvata oikealla sisällöllä) -->
-  <section id="home" class="py-24"></section>
-  <section id="sports" class="py-24"></section>
-  <section id="fashion" class="py-24"></section>
-  <section id="electronics" class="py-24"></section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4 py-10 text-center text-sm text-gray-500">
-      © <span id="year"></span> Laatukampe. Kaikki oikeudet pidätetään.
+  <!-- 📣 Newsletter CTA -->
+  <section class="bg-primary text-black py-16 text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Liity VIP‑listalle ja nappaa -10 % seuraavasta ostoksesta</h2>
+      <p class="mb-8 text-gray-800">Saat ensimmäisenä sähköpostiisi uudet diilit ja eksklusiiviset kupongit.</p>
+      <form class="flex flex-col sm:flex-row gap-4 justify-center">
+        <input type="email" placeholder="Sähköpostisi" required class="flex-1 px-4 py-3 rounded-xl placeholder-gray-500 focus:outline-none">
+        <button type="submit" class="bg-black text-white font-semibold px-6 py-3 rounded-xl hover:bg-gray-800 transition">Liity</button>
+      </form>
     </div>
+  </section>
+
+  <!-- 🏆 Testimonials -->
+  <section class="bg-black py-20">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold mb-12">Asiakkaat <span class="text-primary">rakastavat</span> meitä</h2>
+      <div class="grid gap-10 md:grid-cols-3">
+        <!-- Simple static testimonials; replace or integrate slider later -->
+        <figure class="bg-gray-900 rounded-2xl p-6 shadow-lg text-left">
+          <blockquote class="mb-4 italic text-gray-300 leading-relaxed">“Löysin uuden puhelimen 30 % halvemmalla kuin muualla – suosittelen lämpimästi!”</blockquote>
+          <figcaption class="text-sm text-gray-500">– Anni, Helsinki</figcaption>
+        </figure>
+        <figure class="bg-gray-900 rounded-2xl p-6 shadow-lg text-left">
+          <blockquote class="mb-4 italic text-gray-300 leading-relaxed">“Helppo käyttää, nopea toimitus ja loistava asiakaspalvelu.”</blockquote>
+          <figcaption class="text-sm text-gray-500">– Jussi, Tampere</figcaption>
+        </figure>
+        <figure class="bg-gray-900 rounded-2xl p-6 shadow-lg text-left">
+          <blockquote class="mb-4 italic text-gray-300 leading-relaxed">“Säästin tuntikausia shoppailuaikaa – Laatukampe tekee sen puolestani.”</blockquote>
+          <figcaption class="text-sm text-gray-500">– Laura, Turku</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-3 text-sm">
+      <div>
+        <img src="laatukampe.png" alt="Laatukampe logo" class="h-10 mb-4">
+        <p>Suomen luotettavin affiliate‑tarjoussivusto vuodesta 2025.</p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="font-semibold text-white mb-2">Navigointi</span>
+        <a href="#hero"       class="hover:text-primary transition">Etusivu</a>
+        <a href="#deals"      class="hover:text-primary transition">Tarjoukset</a>
+        <a href="#newsletter" class="hover:text-primary transition">Liity listalle</a>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="font-semibold text-white mb-2">Yhteystiedot</span>
+        <p>info@laatukampe.fi</p>
+        <p>Helsinki, Finland</p>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 text-center py-4 text-xs">© <span id="year"></span> Laatukampe. Kaikki oikeudet pidätetään.</div>
   </footer>
 
+  <!-- JS: dynamic dates -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('updatedDate').textContent = new Intl.DateTimeFormat('fi-FI').format(new Date());
   </script>
+
 </body>
 </html>
