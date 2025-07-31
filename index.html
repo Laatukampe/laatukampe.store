@@ -4,78 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laatukampe – Laadukkaimmat tuotteet</title>
-  <!-- Tailwind CSS CDN for rapid, responsive styling -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Favicon (optional) -->
-  <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
+  <!-- Tailwind CSS CDN (auto-generated build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /*
+      Pieni teema-laajennus – voit muokata värejä, fontteja tms. täällä myöhemmin.
+      tailwind.config = {
+        theme: {
+          extend: {}  // esim. colors: { primary: '#FACC15' }
+        }
+      }
+    */
+  </script>
 </head>
-<body class="bg-black text-white font-sans overflow-x-hidden">
+<body class="bg-black text-white font-sans scroll-smooth overflow-x-hidden">
 
-  <!-- Navigation / Header -->
-  <header class="w-full bg-black shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-center">
-      <!-- Place laatukampe.png in the same directory -->
-      <img src="laatukampe.png" alt="Laatukampe logo" class="h-12 w-auto select-none" loading="lazy">
+  <!-- Header / Logo -->
+  <header class="w-full bg-black/90 backdrop-blur sticky top-0 z-50 shadow">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-center">
+      <img src="laatukampe.png" alt="Laatukampe logo" class="h-14 w-auto select-none" loading="lazy">
     </div>
   </header>
 
-  <!-- Hero Section – Latest Deals -->
+  <!-- Hero – Latest Deals -->
   <section class="bg-gray-900">
-    <div class="container mx-auto px-4 py-12 text-center">
-      <h1 class="text-3xl md:text-5xl font-bold mb-4">Uusimmat tarjoukset</h1>
-      <p class="text-gray-300 mb-8">Päivittäin päivittyvät diilit laadukkaimmista tuotteista</p>
+    <div class="max-w-7xl mx-auto px-4 py-16 text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Uusimmat tarjoukset</h1>
+      <p class="text-gray-300 md:text-xl mb-10">Päivittäin päivittyvät diilit laadukkaimmista tuotteista</p>
 
-      <!-- Horizontally scrollable carousel placeholder. Replace with Shopify Buy Buttons or dynamic components later. -->
-      <div id="dealsCarousel" class="flex overflow-x-auto space-x-6 pb-4 snap-x scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
-        <!-- Example product card -->
-        <article class="min-w-[240px] bg-white text-black rounded-2xl p-4 shadow-lg snap-center">
-          <div class="h-40 bg-gray-200 rounded-xl mb-3 flex items-center justify-center">
+      <!-- Horizontaalinen karuselli → korvaa Shopify Buy Button -komponenteilla -->
+      <div id="dealsCarousel" class="flex gap-6 overflow-x-auto snap-x md:snap-none scrollbar-thin scrollbar-thumb-gray-700/70 scrollbar-track-gray-800/60">
+        <!-- Mallikortti -->
+        <article class="min-w-[260px] bg-white text-black rounded-2xl p-5 shadow-lg snap-center shrink-0">
+          <div class="h-44 bg-gray-200 rounded-xl mb-4 flex items-center justify-center">
             <span class="text-gray-500">Kuva</span>
           </div>
-          <h2 class="font-semibold text-lg">Tuote 1</h2>
-          <p class="text-sm text-gray-600">Lyhyt kuvaus</p>
-          <p class="text-xl font-bold mt-2">€199</p>
-          <button class="mt-4 w-full bg-black text-white py-2 rounded-xl hover:bg-gray-800 transition">
-            Osta nyt
-          </button>
+          <h2 class="font-semibold text-lg mb-1">Tuote 1</h2>
+          <p class="text-sm text-gray-600 mb-3">Lyhyt kuvaus</p>
+          <p class="text-xl font-bold mb-4">€199</p>
+          <button class="w-full bg-black text-white py-2 rounded-xl hover:bg-gray-800 transition-colors">Osta nyt</button>
         </article>
-        <!-- Lisää tuotteita Shopify Buy Buttonin avulla -->
+        <!-- Lisää tuotekomponentteja tähän -->
       </div>
-      <p class="text-sm text-gray-500 mt-4">Vieritä nähdäksesi lisää ➡️</p>
+      <p class="text-xs text-gray-400 mt-4 hidden md:block">✨ Vieritä sivusuunnassa nähdäksesi lisää ✨</p>
     </div>
   </section>
 
-  <!-- Categories Section -->
-  <section class="bg-black">
-    <div class="container mx-auto px-4 py-12">
-      <h2 class="text-2xl md:text-4xl font-bold text-center mb-8">Tuotekategoriat</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <!-- Repeat / modify category cards as needed -->
-        <a href="#electronics" class="group block bg-gray-900 rounded-2xl p-6 text-center hover:bg-gray-800 transition">
-          <div class="h-20 flex items-center justify-center mb-4">
-            <span class="text-gray-400 group-hover:text-white text-3xl">📱</span>
-          </div>
+  <!-- Categories -->
+  <section id="categories" class="bg-black">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Tuotekategoriat</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+        <a href="#electronics" class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-800 transition">
+          <span class="text-4xl mb-4 group-hover:scale-110 transition">📱</span>
           <span class="font-semibold">Elektroniikka</span>
         </a>
-
-        <a href="#fashion" class="group block bg-gray-900 rounded-2xl p-6 text-center hover:bg-gray-800 transition">
-          <div class="h-20 flex items-center justify-center mb-4">
-            <span class="text-gray-400 group-hover:text-white text-3xl">👗</span>
-          </div>
+        <a href="#fashion" class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-800 transition">
+          <span class="text-4xl mb-4 group-hover:scale-110 transition">👗</span>
           <span class="font-semibold">Muoti</span>
         </a>
-
-        <a href="#sports" class="group block bg-gray-900 rounded-2xl p-6 text-center hover:bg-gray-800 transition">
-          <div class="h-20 flex items-center justify-center mb-4">
-            <span class="text-gray-400 group-hover:text-white text-3xl">🏋️‍♂️</span>
-          </div>
+        <a href="#sports" class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-800 transition">
+          <span class="text-4xl mb-4 group-hover:scale-110 transition">🏋️‍♂️</span>
           <span class="font-semibold">Urheilu</span>
         </a>
-
-        <a href="#home" class="group block bg-gray-900 rounded-2xl p-6 text-center hover:bg-gray-800 transition">
-          <div class="h-20 flex items-center justify-center mb-4">
-            <span class="text-gray-400 group-hover:text-white text-3xl">🏠</span>
-          </div>
+        <a href="#home" class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-gray-800 transition">
+          <span class="text-4xl mb-4 group-hover:scale-110 transition">🏠</span>
           <span class="font-semibold">Koti</span>
         </a>
       </div>
@@ -84,22 +77,14 @@
 
   <!-- Footer -->
   <footer class="bg-gray-900">
-    <div class="container mx-auto px-4 py-8 text-center text-sm text-gray-500">
+    <div class="max-w-7xl mx-auto px-4 py-10 text-center text-sm text-gray-500">
       © <span id="year"></span> Laatukampe. Kaikki oikeudet pidätetään.
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Scriptit -->
   <script>
-    // Dynamic current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    /*
-     * Shopify Buy Button integration instructions (placeholder):
-     * 1. Kirjaudu Shopifyhin ja luo Buy Button -sovellus.
-     * 2. Upota saamasi <script> koodi ja product-component div tähän.
-     */
   </script>
-
 </body>
 </html>
